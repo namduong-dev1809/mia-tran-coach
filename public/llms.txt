@@ -1,0 +1,13 @@
+# Mia Tran – Land your first freelance client in 30 days
+
+> Demo landing page for a fictional coach who helps designers go freelance. Built by Duong Thanh Nam (https://duongthanhnam.vercel.app) as a portfolio example. Mia Tran, her guide, course and reviews are not real.
+
+## What the page offers
+
+- A free 24-page guide, "Land your first freelance client in 30 days", sent by email after sign-up
+- The guide's 7 steps: pick a niche, build a 3-project portfolio, set first prices, find 20 leads in a week, write messages that get replies, run a first client call, deliver and get a testimonial
+- A paid course: 6 weekly video lessons, portfolio and pricing templates, a live group call every Friday, a private community and lifetime access, with a 14-day refund
+
+## Pages
+
+- [Home](https://mia-tran-coach.vercel.app): guide sign-up, guide outline, about, reviews, course offer and FAQ

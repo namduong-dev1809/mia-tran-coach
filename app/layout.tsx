@@ -7,6 +7,8 @@ const sans = DM_Sans({ variable: "--font-dm-sans", subsets: ["latin"] });
 const serif = DM_Serif_Display({ variable: "--font-dm-serif", subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mia-tran-coach.vercel.app"),
+  alternates: { canonical: "/" },
   title: "Free guide: Land your first freelance client in 30 days – Mia Tran",
   description: "A free 7-step guide for designers going freelance, from a fictional coach. A demo lead-magnet landing page.",
 };

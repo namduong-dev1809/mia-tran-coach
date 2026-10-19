@@ -33,9 +33,27 @@ const faqs = [
   { q: "What if the course isn't right for me?", a: "Ask for a refund within 14 days and you get every cent back." },
 ];
 
+// Structured data so Google and AI assistants can read who this is and quote the FAQ
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      name: "Mia Tran",
+      jobTitle: "Freelance coach for designers (fictional)",
+      url: "https://mia-tran-coach.vercel.app",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <p className="bg-ink px-4 py-2 text-center text-xs text-cream/80">
         Demo landing page · fictional coach · built by{" "}
         <a href="https://duongthanhnam.vercel.app" className="underline hover:text-white">
