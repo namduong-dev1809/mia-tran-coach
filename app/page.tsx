@@ -62,14 +62,12 @@ export default function Home() {
             <ul className="mt-6 grid gap-2 text-sm">
               {["Copy-paste outreach template", "Simple pricing formula", "Checklist for your first client call"].map((b) => (
                 <li key={b} className="flex gap-2">
-                  <span aria-hidden="true" className="text-clay">
-                    ✔
-                  </span>
+                  <svg aria-hidden="true" viewBox="0 0 24 24" className="mt-0.5 size-4 shrink-0 text-clay" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
                   {b}
                 </li>
               ))}
             </ul>
-            <div className="mt-8 max-w-md">
+            <div id="get-guide" className="mt-8 max-w-md scroll-mt-6">
               <LeadForm />
             </div>
           </div>
@@ -160,9 +158,7 @@ export default function Home() {
               <ul className="mt-6 grid gap-3">
                 {course.map((c) => (
                   <li key={c} className="flex gap-3 text-sm">
-                    <span aria-hidden="true" className="text-clay">
-                      ✔
-                    </span>
+                    <svg aria-hidden="true" viewBox="0 0 24 24" className="mt-0.5 size-4 shrink-0 text-clay" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
                     {c}
                   </li>
                 ))}

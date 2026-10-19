@@ -22,7 +22,7 @@ export default function Countdown() {
       {units.map((u) => (
         <div key={u} className="w-16 rounded-xl bg-white/10 py-3 text-center sm:w-20">
           <p className="font-serif text-3xl tabular-nums sm:text-4xl">{left ? String(left[u]).padStart(2, "0") : "--"}</p>
-          <p className="mt-1 text-[0.7rem] uppercase tracking-widest text-white/70">{u}</p>
+          <p className="mt-1 text-xs uppercase tracking-widest text-white/70">{u}</p>
         </div>
       ))}
     </div>

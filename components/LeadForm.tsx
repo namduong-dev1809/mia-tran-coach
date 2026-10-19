@@ -15,13 +15,15 @@ export default function LeadForm() {
     const email = String(data.get("email") ?? "");
     const next = { name: !name, email: !isValidEmail(email) };
     setErrors(next);
-    if (!next.name && !next.email) setDone(name);
+    if (!next.name && !next.email) return setDone(name);
+    // move focus to the first field that needs fixing
+    (e.currentTarget.elements.namedItem(next.name ? "name" : "email") as HTMLInputElement).focus();
   }
 
   if (done) {
     return (
       <div role="status" className="rounded-2xl bg-white p-6 ring-1 ring-blush">
-        <p className="font-serif text-2xl">Thank you, {done}! 🎉</p>
+        <p className="font-serif text-2xl">Thank you, {done}!</p>
         <p className="mt-2 text-muted">
           Your guide is on its way. Check your inbox (and the Promotions tab) in the next few minutes.
         </p>
@@ -33,22 +35,22 @@ export default function LeadForm() {
   const field = "w-full rounded-xl border bg-white px-4 py-3 focus:border-clay";
 
   return (
-    <form id="get-guide" onSubmit={submit} noValidate className="grid gap-3 rounded-2xl bg-white p-5 ring-1 ring-blush sm:p-6">
+    <form onSubmit={submit} noValidate className="grid gap-3 rounded-2xl bg-white p-5 ring-1 ring-blush sm:p-6">
       <label className="grid gap-1 text-sm font-medium">
         First name
-        <input name="name" autoComplete="given-name" aria-invalid={!!errors.name} className={`${field} ${errors.name ? "border-clay" : "border-blush"}`} />
+        <input name="name" autoComplete="given-name" aria-invalid={!!errors.name} aria-describedby={errors.name ? "name-error" : undefined} className={`${field} ${errors.name ? "border-clay" : "border-blush"}`} />
       </label>
       {errors.name && (
-        <p role="alert" className="-mt-2 text-sm text-clay-dark">
+        <p id="name-error" role="alert" className="-mt-2 text-sm text-clay-dark">
           Please tell me your first name.
         </p>
       )}
       <label className="grid gap-1 text-sm font-medium">
         Email
-        <input name="email" type="email" autoComplete="email" aria-invalid={!!errors.email} className={`${field} ${errors.email ? "border-clay" : "border-blush"}`} />
+        <input name="email" type="email" autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? "email-error" : undefined} className={`${field} ${errors.email ? "border-clay" : "border-blush"}`} />
       </label>
       {errors.email && (
-        <p role="alert" className="-mt-2 text-sm text-clay-dark">
+        <p id="email-error" role="alert" className="-mt-2 text-sm text-clay-dark">
           Please enter a valid email address.
         </p>
       )}
